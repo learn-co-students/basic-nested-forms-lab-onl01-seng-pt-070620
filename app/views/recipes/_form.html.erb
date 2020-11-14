@@ -1,0 +1,13 @@
+<% binding.pry %>
+<%= form_for recipe do |recipe_builder| %>
+  <%= recipe_builder.label :title %><br>
+  <%= recipe_builder.text_field :title %><br>
+  <%= recipe_builder.fields_for :ingredients do |ingredients_builder| %>
+    <%= ingredients_builder.label :name %><br>
+    <%= ingredients_builder.text_field :name %><br>
+    <%= ingredients_builder.label :quantity %><br>
+    <%= ingredients_builder.text_field :quantity %>
+  <% end %>
+  <%= recipe_builder.submit %>
+
+<% end %>
