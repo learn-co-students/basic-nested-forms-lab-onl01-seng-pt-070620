@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    
+    # binding.pry
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
@@ -23,11 +23,11 @@ class RecipesController < ApplicationController
       render :new
     end
   end
-  private
+  
 
   def recipe_params
 
-    params.require(:recipe).permit(:title, ingredients_attributes: [:ingredient_1])
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 
 end
